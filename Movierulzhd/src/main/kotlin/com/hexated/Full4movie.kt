@@ -36,61 +36,6 @@ open class Full4movie : Movierulzhd(){
             }
         return newHomePageResponse(request.name, home)
     }
-    private fun getProperLink(uri: String): String {
-        return when {
-            uri.contains("web-series") -> {
-                var title = uri.substringAfter("$mainUrl/")
-                title = Regex("(.+?)-season").find(title)?.groupValues?.get(1).toString()
-                "$mainUrl/tvshows/$title"
-            }
-
-            else -> {
-                uri
-            }
-        }
-    }
-    private fun Element.toSearchResult(): SearchResponse? {
-        val title = this.selectFirst("h2 > a")?.text() ?: return null
-        val href = getProperLink(fixUrl(this.selectFirst("h2 > a")!!.attr("href")))
-        val posterUrl = fixUrlNull(this.select("div.img-wrap img").last()?.getImageAttr())
-        val quality = getQualityFromString(this.select("span.quality").text())
-        return newMovieSearchResponse(title, href, TvType.Movie) {
-            this.posterUrl = posterUrl
-            this.quality = quality
-        }
-
-    }
-
-    override suspend fun search(query: String): List<SearchResponse> {
-        val document = app.get("$mainUrl/?s=$query").document
-        return document.select("div.posts-wrapper").map {
-            val title =
-                it.selectFirst("h2 > a")!!.text().replace(Regex("\\(\\d{4}\\)"), "").trim()
-            val href = getProperLink(it.selectFirst("h2 > a")!!.attr("href"))
-            val posterUrl = it.selectFirst("img")!!.attr("src").toString()
-            newMovieSearchResponse(title, href, TvType.TvSeries) {
-                this.posterUrl = posterUrl
-            }
-        }
-    }
-    override suspend fun load(url: String): LoadResponse {
-        val request = app.get(url)
-        val document = request.document
-        directUrl = getBaseUrl(request.url)
-        val title = url.toString()
-        val poster = fixUrlNull(document.selectFirst("img.aligncenter")?.getImageAttr())
-
-         newMovieLoadResponse(title, url, TvType.Movie, url) {
-                this.posterUrl = poster
-         }
-        
-    }
-    private fun getBaseUrl(url: String): String {
-        return URI(url).let {
-            "${it.scheme}://${it.host}"
-        }
-    }
-
     
 
 }
