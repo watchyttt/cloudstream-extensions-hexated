@@ -70,3 +70,8 @@ class AnimesagaStream : Chillx() {
     override val name = "AnimesagaStream"
     override val mainUrl = "https://stream.anplay.in"
 }
+
+class Bestxstream : Chillx() {
+    override val name = "Bestxstream"
+    override val mainUrl = "https://bestx.stream"
+}

@@ -15,5 +15,6 @@ class MovierulzhdPlugin: Plugin() {
         registerExtractorAPI(Sbnmp())
         registerExtractorAPI(Akamaicdn())
         registerExtractorAPI(AnimesagaStream())
+        registerExtractorAPI(Bestxstream()))
     }
 }
