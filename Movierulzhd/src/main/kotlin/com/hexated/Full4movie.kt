@@ -20,22 +20,4 @@ open class Full4movie : Movierulzhd(){
         TvType.Movie,
         TvType.TvSeries,
     )
-
-    override val mainPage = mainPageOf(
-        "category/web-series/" to "Web Series",
-        "category/bollywood-movies-download" to "Bollywood",
-    )
-    override suspend fun getMainPage(
-        page:Int,
-        request:MainPageRequest
-    ): HomePageResponse{
-        val document = app.get("$mainUrl/${request.data}/page/$page").document
-        val home =
-            document.select("div.posts-wrapper div.content").mapNotNull {
-                it.toSearchResult()
-            }
-        return newHomePageResponse(request.name, home)
-    }
-    
-
 }
