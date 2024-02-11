@@ -1,0 +1,23 @@
+ {
+        "iconUrl": "https://cdn.discordapp.com/attachments/1109266606292488297/1193122096159674448/2-modified.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/watchyttt/cloudstream-extensions-hexated",
+        "fileSize": 274099,
+        "status": 1,
+        "language": "en",
+        "authors": [
+            "Hexated",
+            "Sora"
+        ],
+        "tvTypes": [
+            "AsianDrama",
+            "TvSeries",
+            "Anime",
+            "Movie"
+        ],
+        "version": 222,
+        "internalName": "SoraStream",
+        "description": "#1 best extention based on MultiAPI",
+        "url": "https://raw.githubusercontent.com/watchyttt/cloudstream-extensions-hexated/builds/SoraStream.cs3",
+        "name": "SoraStream"
+    },
