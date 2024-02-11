@@ -1,4 +1,4 @@
- {
+[ {
         "iconUrl": "https://cdn.discordapp.com/attachments/1109266606292488297/1193122096159674448/2-modified.png",
         "apiVersion": 1,
         "repositoryUrl": "https://github.com/watchyttt/cloudstream-extensions-hexated",
@@ -20,4 +20,5 @@
         "description": "#1 best extention based on MultiAPI",
         "url": "https://raw.githubusercontent.com/watchyttt/cloudstream-extensions-hexated/builds/SoraStream.cs3",
         "name": "SoraStream"
-    },
+    }
+]
