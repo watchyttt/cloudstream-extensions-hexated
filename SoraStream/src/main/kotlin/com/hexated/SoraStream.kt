@@ -66,7 +66,6 @@ open class SoraStream : TmdbProvider() {
     )
 
     val wpRedisInterceptor by lazy { CloudflareKiller() }
-    val multiInterceptor by lazy { CloudflareKiller() }
 
     /** AUTHOR : Hexated & Sora */
     companion object {
@@ -91,7 +90,7 @@ open class SoraStream : TmdbProvider() {
         const val crunchyrollAPI = "https://beta-api.crunchyroll.com"
         const val kissKhAPI = "https://kisskh.co"
         const val lingAPI = "https://ling-online.net"
-        const val m4uhdAPI = "https://ww2.m4ufree.com"
+        const val m4uhdAPI = "https://m4umv.org"
         const val rStreamAPI = "https://remotestream.cc"
         const val flixonAPI = "https://flixon.lol"
         const val smashyStreamAPI = "https://embed.smashystream.com"
@@ -143,7 +142,7 @@ open class SoraStream : TmdbProvider() {
 
     }
 
-     override val mainPage = mainPageOf(
+    override val mainPage = mainPageOf(
         "$tmdbAPI/trending/all/day?api_key=$apiKey&region=US" to "Trending",
         "$tmdbAPI/movie/popular?api_key=$apiKey&region=US" to "Popular Movies",
         "$tmdbAPI/tv/popular?api_key=$apiKey&region=US&with_original_language=en" to "Popular TV Shows",
